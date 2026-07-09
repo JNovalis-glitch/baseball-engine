@@ -71,6 +71,11 @@ tracking.
 - best outfielder plays LCF
 - A players anchor and support developing players
 - kid-pitch innings are good opportunities for B/C infield reps
+- development players should receive varied position looks when practical
+- avoid repeating the same outfield position for a player more than once when
+  corner outfield or infield alternatives are available
+- prefer mixing corner outfield with an infield development rep, especially 3B,
+  instead of repeating the same 2B/RCF pattern
 
 ## Defensive Priorities
 
@@ -110,6 +115,8 @@ Every final lineup must verify:
 - no consecutive bench innings
 - only approved players at 1B
 - development opportunities are reasonably distributed
+- development players are not stuck in repeated same-position patterns when a
+  valid varied assignment exists
 - strong players occupy priority defensive positions
 
 ## Optimization Boundary
