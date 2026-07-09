@@ -73,6 +73,9 @@ For a standard 7U game:
 - Best outfielder should play LCF.
 - A players anchor the defense and support developing players.
 - Kid-pitch innings are useful opportunities for B/C player infield reps.
+- Development players should get varied looks when practical: avoid repeating
+  the same outfield spot and prefer a corner outfield plus infield mix, including
+  3B reps where the lineup remains valid.
 
 ## Defensive Priorities
 
@@ -129,6 +132,7 @@ The validator checks for issues such as:
 - pitching/catching rule violations
 - bench fairness
 - development opportunity warnings
+- repeated same-position development patterns
 
 ## Output
 
@@ -138,6 +142,72 @@ The engine produces an Excel lineup card in the coach-facing format:
 - innings across the top
 - bench rows at the bottom
 - supporting roster and validation sheets
+
+## Game Plan JSON
+
+Lineups can be generated from a small game-plan file:
+
+```bash
+python -m cli generate examples/july8_braves.json
+```
+
+The JSON contains:
+
+- `players`: roster entries with `name`, `tier`, `pitcher`, `catcher`,
+  `new_player`, and `active`
+- `locks`: exact assignments such as James pitching the 3rd and Auggie catching
+- `preferences`: coaching intent such as top defenders, development-focus
+  players, avoided positions, and first-inning strength spreading
+
+Example preference fields:
+
+```json
+{
+  "top_defenders": ["Auggie", "Connor", "James"],
+  "development_focus": ["Dillon"],
+  "spread_first_inning_infield_strength": true,
+  "avoid_positions": [
+    {"player": "Blake", "position": "P", "innings": [1]}
+  ]
+}
+```
+
+Small coach-requested swaps can be searched from an existing TSV lineup:
+
+```bash
+python -m cli adjust examples/generated_july8.tsv \
+  --game-plan examples/july8_braves.json \
+  --request Dillon:3B:1
+```
+
+The adjust command only returns changes that still pass hard validation.
+
+## Manual Tweak Workflow
+
+The intended coach workflow is:
+
+1. Generate an initial lineup.
+2. Copy it into Sheets.
+3. Make coach adjustments by hand.
+4. Paste or save the adjusted TSV back into the engine.
+5. Run validation before using the card.
+
+Validate a saved TSV:
+
+```bash
+python -m cli validate examples/july8_hand_tweaked.tsv \
+  --game-plan examples/july8_braves.json
+```
+
+Validate pasted TSV from stdin:
+
+```bash
+python -m cli validate - --game-plan examples/july8_braves.json
+```
+
+The validator reports hard errors separately from softer warnings, so duplicate
+players, missing players, broken locks, bench mistakes, and back-to-back
+outfield are easy to spot after manual edits.
 
 ## Development Notes
 
