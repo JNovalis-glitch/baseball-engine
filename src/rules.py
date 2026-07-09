@@ -15,5 +15,9 @@ class EngineRules:
     prioritize_development_kid_pitch:bool=True
     strong_lcf:bool=True
     first_base_prefers_tier_a:bool=True
+    diversify_development_positions:bool=True
+    max_same_outfield_position_per_player:int=1
+    prefer_corner_outfield_for_development:bool=True
+    prefer_third_base_development_reps:bool=True
 
 DEFAULT_RULES=EngineRules()
