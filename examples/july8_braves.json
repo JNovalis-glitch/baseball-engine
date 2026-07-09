@@ -1,0 +1,28 @@
+{
+  "players": [
+    {"name": "Auggie", "tier": "A", "pitcher": true, "catcher": true},
+    {"name": "Bobby", "tier": "B", "catcher": true},
+    {"name": "Connor", "tier": "A", "pitcher": true, "catcher": true},
+    {"name": "Dillon", "tier": "C"},
+    {"name": "James", "tier": "A", "pitcher": true, "catcher": true},
+    {"name": "Killian", "tier": "B", "catcher": true},
+    {"name": "Remy", "tier": "B", "pitcher": true, "catcher": true},
+    {"name": "River", "tier": "B"},
+    {"name": "Miles", "tier": "B"},
+    {"name": "Teddy", "tier": "A", "pitcher": true},
+    {"name": "Wesley", "tier": "C", "catcher": true},
+    {"name": "Weston", "tier": "A", "pitcher": true}
+  ],
+  "locks": [
+    {"inning": 3, "position": "P", "player": "James"},
+    {"inning": 3, "position": "C", "player": "Auggie"},
+    {"inning": 4, "position": "P", "player": "Teddy"},
+    {"inning": 4, "position": "C", "player": "Connor"}
+  ],
+  "preferences": {
+    "top_defenders": ["Auggie", "Connor", "James", "Teddy", "Weston"],
+    "development_focus": ["Dillon", "Wesley"],
+    "spread_first_inning_infield_strength": true,
+    "avoid_positions": []
+  }
+}
