@@ -1,0 +1,137 @@
+{
+  "players": [
+    {
+      "name": "Auggie",
+      "tier": "A",
+      "pitcher": true,
+      "catcher": true,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "James",
+      "tier": "A",
+      "pitcher": false,
+      "catcher": true,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Teddy",
+      "tier": "A",
+      "pitcher": false,
+      "catcher": true,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Weston",
+      "tier": "A",
+      "pitcher": true,
+      "catcher": false,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Theo",
+      "tier": "A",
+      "pitcher": true,
+      "catcher": false,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Max",
+      "tier": "B",
+      "pitcher": true,
+      "catcher": false,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Joey",
+      "tier": "B",
+      "pitcher": false,
+      "catcher": false,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Henry",
+      "tier": "B",
+      "pitcher": false,
+      "catcher": true,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Nicolas",
+      "tier": "B",
+      "pitcher": false,
+      "catcher": false,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Bobby",
+      "tier": "B",
+      "pitcher": false,
+      "catcher": true,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Dillon",
+      "tier": "C",
+      "pitcher": false,
+      "catcher": false,
+      "new_player": false,
+      "active": true
+    },
+    {
+      "name": "Nash",
+      "tier": "B",
+      "pitcher": false,
+      "catcher": true,
+      "new_player": false,
+      "active": true
+    }
+  ],
+  "locks": [
+    {
+      "inning": 3,
+      "position": "P",
+      "player": "Weston"
+    },
+    {
+      "inning": 4,
+      "position": "P",
+      "player": "Auggie"
+    },
+    {
+      "inning": 3,
+      "position": "C",
+      "player": "James"
+    },
+    {
+      "inning": 4,
+      "position": "C",
+      "player": "Teddy"
+    }
+  ],
+  "preferences": {
+    "top_defenders": [
+      "Auggie",
+      "James",
+      "Teddy",
+      "Weston",
+      "Theo"
+    ],
+    "development_focus": [
+      "Dillon",
+      "Joey"
+    ],
+    "spread_first_inning_infield_strength": true,
+    "avoid_positions": []
+  }
+}
