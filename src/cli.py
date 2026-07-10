@@ -7,6 +7,7 @@ from pathlib import Path
 
 from adjustments import PositionRequest, apply_position_requests
 from explain import explain_lineup, format_explanation
+from game_plan_builder import build_game_plan_json
 from game_plan import load_game_plan
 from generator import generate_lineup
 from lineup_io import format_tsv_lineup, parse_tsv_lineup
@@ -20,6 +21,16 @@ def main() -> None:
 
     generate_parser = subparsers.add_parser("generate", help="Generate a lineup from a JSON game plan.")
     generate_parser.add_argument("game_plan", help="Path to game-plan JSON.")
+
+    create_parser = subparsers.add_parser("create-plan", help="Create game-plan JSON from a roster text file.")
+    create_parser.add_argument("roster", help="Path to roster text, or '-' to read pasted roster from stdin.")
+    create_parser.add_argument("--pitcher", action="append", default=[], help="Pitcher lock as PLAYER:INNING.")
+    create_parser.add_argument("--catcher", action="append", default=[], help="Catcher lock as PLAYER:INNING.")
+    create_parser.add_argument("--top-defender", action="append", default=[], help="Player to treat as a top defender.")
+    create_parser.add_argument("--development-focus", action="append", default=[], help="Player to prioritize for varied reps.")
+    create_parser.add_argument("--avoid", action="append", default=[], help="Avoidance as PLAYER:POSITION or PLAYER:POSITION:INNING.")
+    create_parser.add_argument("--name-style", choices=("first", "full"), default="first")
+    create_parser.add_argument("--output", help="Optional path to write the JSON. Prints to stdout if omitted.")
 
     validate_parser = subparsers.add_parser("validate", help="Validate a pasted TSV lineup card.")
     validate_parser.add_argument("lineup_tsv", help="Path to TSV lineup card, or '-' to read pasted TSV from stdin.")
@@ -38,6 +49,8 @@ def main() -> None:
     args = parser.parse_args()
     if args.command == "generate":
         _generate(args.game_plan)
+    elif args.command == "create-plan":
+        _create_plan(args)
     elif args.command == "validate":
         _validate(args.lineup_tsv, args.game_plan)
     elif args.command == "adjust":
@@ -61,6 +74,23 @@ def _generate(game_plan_path: str) -> None:
     print(format_tsv_lineup(generated.lineup))
     print()
     print(format_explanation(explanation))
+
+
+def _create_plan(args) -> None:
+    content = build_game_plan_json(
+        _read_text(args.roster),
+        pitcher_locks=args.pitcher,
+        catcher_locks=args.catcher,
+        top_defenders=args.top_defender,
+        development_focus=args.development_focus,
+        avoid_positions=args.avoid,
+        name_style=args.name_style,
+    )
+    if args.output:
+        Path(args.output).write_text(content, encoding="utf-8")
+        print(f"Wrote game plan to {args.output}.")
+    else:
+        print(content, end="")
 
 
 def _validate(lineup_path: str, game_plan_path: str | None) -> None:
