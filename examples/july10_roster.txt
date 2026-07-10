@@ -1,0 +1,12 @@
+Auggie Novalis | Auggie | A | pitcher catcher
+James Cecchetelli | James | A | catcher
+Teddy DeMarzo | Teddy | A | catcher
+Weston Lalk | Weston | A | pitcher
+Theodore Smith | Theo | A | pitcher
+Maxwell Messner | Max | B | pitcher
+Joey DiCicco | Joey | B
+Henry Holechek | Henry | B | catcher
+Nicolas Del Guercio | Nicolas | B
+Bobby MacAdam | Bobby | B | catcher
+Dillon Bartucci | Dillon | C
+Nash Hazen | Nash | B | catcher
