@@ -151,6 +151,35 @@ Lineups can be generated from a small game-plan file:
 python -m cli generate examples/july8_braves.json
 ```
 
+Create that JSON from a pasted roster file:
+
+```bash
+python -m cli create-plan examples/july10_roster.txt \
+  --pitcher Weston:3 \
+  --pitcher Auggie:4 \
+  --catcher James:3 \
+  --catcher Teddy:4 \
+  --top-defender Auggie \
+  --top-defender James \
+  --top-defender Teddy \
+  --top-defender Weston \
+  --top-defender Theo \
+  --development-focus Dillon \
+  --development-focus Joey \
+  --output examples/july10_game.json
+```
+
+Roster lines can be plain names, or this richer format:
+
+```text
+Theodore Smith | Theo | A | pitcher
+Maxwell Messner | Max | B | pitcher catcher
+Dillon Bartucci | Dillon | C
+```
+
+The richer format lets the lineup card use short names such as `Theo` and `Max`
+while keeping the full roster names readable in the source file.
+
 The JSON contains:
 
 - `players`: roster entries with `name`, `tier`, `pitcher`, `catcher`,
