@@ -57,6 +57,9 @@ def build_game_plan_data(
             "top_defenders": list(top_defenders),
             "development_focus": list(development_focus),
             "spread_first_inning_infield_strength": True,
+            "protect_final_inning_top_defenders": True,
+            "avoid_top_shortstop_in_kid_pitch": True,
+            "prefer_infield_after_outfield_bench": True,
             "avoid_positions": [
                 _parse_avoidance(value)
                 for value in avoid_positions
