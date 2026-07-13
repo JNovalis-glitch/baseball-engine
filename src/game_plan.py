@@ -62,6 +62,15 @@ def _parse_preferences(data: dict[str, Any]) -> CoachPreferences:
         spread_first_inning_infield_strength=bool(
             data.get("spread_first_inning_infield_strength", True)
         ),
+        protect_final_inning_top_defenders=bool(
+            data.get("protect_final_inning_top_defenders", True)
+        ),
+        avoid_top_shortstop_in_kid_pitch=bool(
+            data.get("avoid_top_shortstop_in_kid_pitch", True)
+        ),
+        prefer_infield_after_outfield_bench=bool(
+            data.get("prefer_infield_after_outfield_bench", True)
+        ),
     )
 
 
