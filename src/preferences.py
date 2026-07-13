@@ -27,3 +27,6 @@ class CoachPreferences:
     development_focus: Tuple[str, ...] = ()
     avoid_positions: Tuple[PositionAvoidance, ...] = ()
     spread_first_inning_infield_strength: bool = True
+    protect_final_inning_top_defenders: bool = True
+    avoid_top_shortstop_in_kid_pitch: bool = True
+    prefer_infield_after_outfield_bench: bool = True
